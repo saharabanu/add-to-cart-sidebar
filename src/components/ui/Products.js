@@ -24,7 +24,13 @@ const Products = () => {
     .then(data => setData(data))
    },[]);
 
-    
+   useEffect(() => {
+    // Update clickedItems when the cart changes
+    const cartItemIds = books.map((item) => item._id);
+    setClickedItems((prevClickedItems) =>
+      prevClickedItems.filter((clickedItem) => cartItemIds.includes(clickedItem))
+    );
+  }, [books]);
     
 
    const handleAddToCart = (item) => {
