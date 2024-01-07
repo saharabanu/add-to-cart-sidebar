@@ -15,6 +15,8 @@ const Products = () => {
    const [data, setData ] = useState([]);
    const [selectedItem, setSelectedItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [buttonClicked, setButtonClicked] = useState(false);
+  const [clickedItems, setClickedItems] = useState([]);
 
    useEffect(()=>{
     fetch("./products.json")
@@ -26,9 +28,12 @@ const Products = () => {
     
 
    const handleAddToCart = (item) => {
-    dispatch(addToCart(item));
-    setSelectedItem(item);
-    setIsModalOpen(true);
+    if (!clickedItems.includes(item._id)) {
+      dispatch(addToCart(item));
+      setSelectedItem(item);
+      setIsModalOpen(true);
+      setClickedItems([...clickedItems, item._id]);
+    }
   };
 
   const closeModal = () => {
@@ -49,7 +54,13 @@ const Products = () => {
           />
           <h5 className="text-center text-gray1 pt-4 ">{item?.pTitle}</h5>
           <h6>{item?.price}</h6>
-          <button onClick={() => handleAddToCart(item)}>Add To Cart</button>
+          <button
+                onClick={() => handleAddToCart(item)}
+                disabled={clickedItems.includes(item._id)}
+                style={{ backgroundColor: clickedItems.includes(item._id) ? "gray" : "green" }}
+              >
+                {clickedItems.includes(item._id) ? "Added to Cart" : "Add To Cart"}
+              </button>
         </div>
             </div>)}
             </div>
