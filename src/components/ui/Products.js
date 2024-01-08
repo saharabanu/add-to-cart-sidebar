@@ -48,21 +48,22 @@ const Products = () => {
   };
   return (
     <>
-      <div className="mx-20 py-16">
-        <div className="flex justify-end items-center pr-20 pb-10">
+      <div className="mx-20 py-5">
+        <div className="flex justify-end items-center pr-20 py-5">
           <DropdownMenu />
         </div>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="w-[850px]">
+        <div className="grid grid-cols-3 gap-4 ">
           {data?.map((item) => (
             <div key={item?._id} className="bg-gray-100 rounded-xl ">
               <div className="">
-                <div className=" py-3">
+                <div className="pt-3">
                   <Image
                     src={item?.img}
                     alt="product img"
                     width={340}
                     height={200}
-                    className="pl-3 h-72"
+                    className="px-2 h-60"
                   />
                 </div>
                 <div className="px-3 py-3">
@@ -70,7 +71,7 @@ const Products = () => {
                     {item?.pTitle}
                   </h5>
                   <p className="text-gray-500">{item?.price} $ /item</p>
-                  <p className="text-gray-500 py-3">{item?.desc} </p>
+                  <p className="text-gray-500 py-3 text-sm lowercase">{item?.desc.slice(0,60)}..... </p>
                 </div>
 
                 <div className="px-3 pb-4">
@@ -100,8 +101,11 @@ const Products = () => {
             </div>
           ))}
         </div>
+        </div>
+        
       </div>
-      {isModalOpen && (
+     <div className="relative flex justify-end ">
+     {isModalOpen && (
         <Cart
           onClose={closeModal}
           selectedItem={selectedItem}
@@ -110,6 +114,7 @@ const Products = () => {
           {/* Add other item details as needed */}
         </Cart>
       )}
+     </div>
     </>
   );
 };
