@@ -29,9 +29,9 @@ const Cart = ({ onClose, children }) => {
 
   // Per total Price {item?.quantity * item?.price}
   return (
-    <div className="bg-gray-100 w-72 space-y-4 h-screen absolute right -0 top-0">
+    <div className="bg-gray-100 w-72 space-y-4 h-screen  right-0 top-0 fixed">
       {/* firat parrt */}
-      <div className=" flex justify-between items-center px-2">
+      <div className=" flex justify-between items-center px-2 pt-4">
         <h2 className="flex items-center text-red-500">
           <HiLockClosed className="text-2xl" />{" "}
           <span className="pl-3">{books?.length} Items</span>
@@ -45,7 +45,7 @@ const Cart = ({ onClose, children }) => {
       </div>
 
       {/* second part cart items */}
-      <div className="bg-red-500">
+      <div className="bg-red-500 h-[480px]">
         <div className="grid grid-cols-1 px-2 py-3">
           {books?.map((item) => (
             <div key={item?._id}>
@@ -113,7 +113,7 @@ const Cart = ({ onClose, children }) => {
 
       {/* last part */}
       <div>
-        <h4 className="font-bold text-red-500 ">
+        <h4 className="font-bold text-red-500 text-center">
           {" "}
           Order Place {total.toFixed(2)} $
         </h4>

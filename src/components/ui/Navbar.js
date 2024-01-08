@@ -8,15 +8,13 @@ import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
-  const {books} = useSelector(state => state.cart)
+  const { books } = useSelector((state) => state.cart);
 
-  const openCartModal = () => {
-    setIsCartModalOpen(true);
+  const toggleCartModal = () => {
+    // Toggle the state to open/close the cart
+    setIsCartModalOpen((prev) => !prev);
   };
 
-  const closeCartModal = () => {
-    setIsCartModalOpen(false);
-  };
 
   return (
     <div>
@@ -51,11 +49,11 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="flex items-center">
-            <button onClick={openCartModal} className="pr-3"><p className="flex">
+            <button onClick={toggleCartModal} className="pr-3"><p className="flex">
             <HiLockClosed  className="text-2xl"/> <sup className="bg-red-600 px-[3px] py-[1px] text-center flex items-center text-white rounded-lg ml-[-10px]">{books?.length}</sup>
               </p></button>
 
-            {isCartModalOpen && <Cart onClose={closeCartModal} />}
+              {isCartModalOpen && <Cart onClose={toggleCartModal} />}
             <button className="bg-red-500 text-white px-4 py-2 rounded-lg ">Order Now</button>
            
           </div>
