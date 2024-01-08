@@ -4,7 +4,7 @@ import { IoIosArrowForward } from "react-icons/io";
 
 const Banner = () => {
     return (
-        <div className="flex justify-center items-center pt-7">
+        <div className=" pt-7">
 
            <div className="space-y-3">
             <h2 className="text-red-500 uppercase text-2xl font-semibold text-center">Chicken crisper <span className="border rounded-full h-4 ring-1 ring-red-500">r</span> combos</h2>
@@ -26,7 +26,7 @@ const Banner = () => {
                 </ul>
             </div>
          
-            <p className="font-medium">Find everything from our Big Mouth Burgers, our always sizzling, Full-on-Fajitas and our famous Chicken Crispers</p>
+            <p className="font-medium text-sm text-center lg:pr-36">Find everything from our Big Mouth Burgers, our always sizzling, Full-on-Fajitas and our famous Chicken Crispers</p>
            </div>
         </div>
     );

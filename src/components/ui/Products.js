@@ -10,7 +10,7 @@ import DropdownMenu from "./DropdownMenu.js";
 const Products = () => {
   const dispatch = useDispatch();
   const { books, total } = useSelector((state) => state.cart);
-  console.log(books, "all items");
+ 
 
   const [data, setData] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -25,7 +25,7 @@ const Products = () => {
   }, []);
 
   useEffect(() => {
-    // Update clickedItems when the cart changes
+    
     const cartItemIds = books.map((item) => item._id);
     setClickedItems((prevClickedItems) =>
       prevClickedItems.filter((clickedItem) =>
@@ -49,11 +49,11 @@ const Products = () => {
   return (
     <>
       <div className="mx-20 py-5">
-        <div className="flex justify-end items-center pr-20 py-5">
+        <div className="flex justify-end items-center lg:pr-56 py-10">
           <DropdownMenu />
         </div>
-        <div className="w-[850px]">
-        <div className="grid grid-cols-3 gap-4 ">
+        <div className="">
+        <div className="grid lg:grid-cols-4 gap-4 ">
           {data?.map((item) => (
             <div key={item?._id} className="bg-gray-100 rounded-xl ">
               <div className="">
@@ -111,7 +111,7 @@ const Products = () => {
           selectedItem={selectedItem}
           setSelectedItem={setSelectedItem}
         >
-          {/* Add other item details as needed */}
+         
         </Cart>
       )}
      </div>
