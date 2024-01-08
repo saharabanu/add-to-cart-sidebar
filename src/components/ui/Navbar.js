@@ -6,6 +6,7 @@ import Link from "next/link";
 import { HiLockClosed } from "react-icons/hi";
 import { useSelector } from "react-redux";
 import { FaXmark, FaBars } from "react-icons/fa6";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
@@ -51,9 +52,7 @@ const Navbar = () => {
           <div>
             <ul className="uppercase flex lg:space-x-5  font-semibold">
               <li className="hover:text-red-600 duration-300 delay-150 transition-all">
-                <Link href="/" className="block">
-                  fruits
-                </Link>
+              <Image src="https://i.ibb.co/SwwLHsD/red-chilli-removebg-preview.png" alt="logo" width={30} height={10}/>
               </li>
               <li className="hover:text-red-600 duration-300 delay-150 transition-all">
                 <Link href="/" className="block">
@@ -88,7 +87,7 @@ const Navbar = () => {
         </div>
         <div className="md:hidden flex justify-around items-center">
         <Link href="/" className="hover:text-red-600 duration-300 delay-150 transition-all font-bold text-xl">
-                  fruits
+                 <Image src="https://i.ibb.co/SwwLHsD/red-chilli-removebg-preview.png" alt="logo" width={40} height={10}/>
                 </Link>
             <button
               className=" text-bluePrimary  focus:outline-none focus:text-gray-500"

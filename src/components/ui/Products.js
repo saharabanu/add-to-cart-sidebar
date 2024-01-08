@@ -17,6 +17,7 @@ const Products = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [buttonClicked, setButtonClicked] = useState(false);
   const [clickedItems, setClickedItems] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
     fetch("./products.json")
@@ -46,6 +47,10 @@ const Products = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  // for filtering data
+  const filteredData = selectedCategory
+    ? data.filter((item) => item?.pTitle === selectedCategory)
+    : data;
   return (
     <>
       <div className="mx-20 py-5">
@@ -55,7 +60,11 @@ const Products = () => {
         <div className="">
         <div className="grid lg:grid-cols-4 gap-4 ">
           {data?.map((item) => (
-            <div key={item?._id} className="bg-gray-100 rounded-xl ">
+            <div key={item?._id} className="bg-gray-100 rounded-xl relative">
+               <div>
+                 
+                  <h2 className="capitalize bg-red-500 text-center w-16 text-white  rounded-full absolute top-[-5px] left-[-20px] -rotate-45">new</h2>
+                </div>
               <div className="">
                 <div className="pt-3">
                   <Image
