@@ -6,6 +6,9 @@ import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import Cart from "./Cart.js";
+import DropdownMenu from "./DropdownMenu.js";
+
+
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -46,8 +49,10 @@ const Products = () => {
     setIsModalOpen(false);
   };
     return (
-        <div>
-            <h2>This is product page</h2>
+        <div className="mx-20 py-16">
+           <div className="flex justify-end items-center pr-20 pb-10">
+            <DropdownMenu/>
+           </div>
             <div className="grid grid-cols-3 gap-5">
             {data?.map((item)=><div key={item?._id}>
             <div  className="mb-10 z-0">
